@@ -14,7 +14,6 @@ namespace Excel2Txt
         public ExcelSheets(IXLWorksheet worksheet)
         {
             this.Name = worksheet.Name;
-            this.RowsCount = worksheet.RowCount();
             this.Columns = new List<ExcelColumn>();
 
             setSheetSize(worksheet);
@@ -28,6 +27,7 @@ namespace Excel2Txt
 
         private void setSheetSize(IXLWorksheet worksheet)
         {
+            //Se encontrar 5 células seguidas em branco considera linha/coluna vazia
             string CelValue;
             int TotalRow = 0;
             int TotalColumn = 0;
@@ -47,20 +47,18 @@ namespace Excel2Txt
                     if (String.IsNullOrEmpty(CelValue))
                     {
                         EmptyRow++;
+                        continue;
                     }
-                    else
-                    {
-                        TotalRow = Math.Max(ActiveRow, TotalRow);
-                    }
+                    TotalRow = Math.Max(ActiveRow, TotalRow);
+                    EmptyRow = 0;
                 }
                 if (ActiveRow == 6) //Se coluna vazia
                 {
                     EmptyColumn++;
+                    continue;
                 }
-                else
-                {
-                    TotalColumn = Math.Max(ActiveColumn, TotalColumn);
-                }
+                TotalColumn = Math.Max(ActiveColumn, TotalColumn);
+                EmptyColumn = 0;
             }
         }
 
