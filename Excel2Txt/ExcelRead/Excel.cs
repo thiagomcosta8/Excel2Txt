@@ -18,5 +18,15 @@ namespace Excel2Txt
                 }
             }
         }
+
+        public List<string> SheetsList()
+        {
+            List<string> SheetsNameList = new List<string>();
+            foreach (ExcelSheets sheet in this.Sheets)
+            {
+                SheetsNameList.Add(sheet.Name);
+            }
+            return SheetsNameList;
+        }
     }
 }

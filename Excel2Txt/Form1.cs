@@ -34,7 +34,7 @@ namespace Excel2Txt
             //    ExcelName.Text = this.ExcelFileName;
             //}
             this.ExcelFileSelected = new Excel(ExcelFileName);
-            boxSheets.DataSource = this.ExcelFileSelected.SheetsName;
+            boxSheets.DataSource = this.ExcelFileSelected.SheetsList();
             boxSheets.SelectedIndex = 0;
             //SelectSheet();
         }
@@ -58,8 +58,8 @@ namespace Excel2Txt
         private void SelectSheet()
         {
             boxColumns.DataSource = null;
-            this.ExcelFileSelected.ActiveSheet(boxSheets.SelectedItem.ToString());
-            boxColumns.DataSource = this.ExcelFileSelected.ColumnsNames;
+            //this.ExcelFileSelected.ActiveSheet(boxSheets.SelectedItem.ToString());
+            //boxColumns.DataSource = this.ExcelFileSelected.ColumnsNames;
         }
 
         private void boxSheets_SelectedIndexChanged(object sender, EventArgs e)

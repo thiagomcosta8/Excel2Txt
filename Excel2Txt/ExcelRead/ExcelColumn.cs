@@ -1,4 +1,5 @@
 ﻿using ClosedXML.Excel;
+using System;
 using System.Collections.Generic;
 
 namespace Excel2Txt
@@ -13,6 +14,7 @@ namespace Excel2Txt
         {
             this.Number = column.ColumnNumber();
             this.Title = column.Cell(1).Value.ToString();
+            this.ColumnData = new List<string>();
             for (int row = 1; row <= totalRows; row++)
             {
                 ColumnData.Add(column.Cell(row).Value.ToString());
