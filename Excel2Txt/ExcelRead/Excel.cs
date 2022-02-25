@@ -7,7 +7,6 @@ namespace Excel2Txt
     {
         public List<ExcelSheets> Sheets = new List<ExcelSheets>();
 
-
         public Excel(string ExcelFileName)
         {
             using (XLWorkbook ExcelOpened = new XLWorkbook(ExcelFileName))
@@ -27,6 +26,18 @@ namespace Excel2Txt
                 SheetsNameList.Add(sheet.Name);
             }
             return SheetsNameList;
+        }
+
+        public ExcelSheets getSheet(string SheetName)
+        {
+            foreach (ExcelSheets sheet in this.Sheets)
+            {
+                if (sheet.Name == SheetName)
+                {
+                    return sheet;
+                }
+            }
+            return null;
         }
     }
 }

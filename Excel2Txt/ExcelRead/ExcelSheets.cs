@@ -18,10 +18,13 @@ namespace Excel2Txt
 
             setSheetSize(worksheet);
 
-            return;
             foreach (IXLColumn column in worksheet.Columns())
             {
                 this.Columns.Add(new ExcelColumn(column, this.RowsCount));
+                if (column.ColumnNumber() == this.ColumnsCount)
+                {
+                    break;
+                }
             }
         }
 
@@ -60,12 +63,18 @@ namespace Excel2Txt
                 TotalColumn = Math.Max(ActiveColumn, TotalColumn);
                 EmptyColumn = 0;
             }
+            this.RowsCount = TotalRow;
+            this.ColumnsCount = TotalColumn;
         }
 
-        public ExcelColumn getColumn(string columnName)
+        public List<string> ColumnsList()
         {
-            ExcelColumn Column = this.Columns.Find(col => col.Title == columnName);
-            return Column;
+            List<string> columnList = new List<string>();
+            foreach (ExcelColumn column in this.Columns)
+            {
+                columnList.Add(column.Title);
+            }
+            return columnList;
         }
 
     }

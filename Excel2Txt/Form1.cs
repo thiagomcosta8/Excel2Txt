@@ -1,12 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Excel2Txt
@@ -36,7 +29,7 @@ namespace Excel2Txt
             this.ExcelFileSelected = new Excel(ExcelFileName);
             boxSheets.DataSource = this.ExcelFileSelected.SheetsList();
             boxSheets.SelectedIndex = 0;
-            //SelectSheet();
+            SelectSheet();
         }
 
         private void AddColumnToTxt()
@@ -58,13 +51,18 @@ namespace Excel2Txt
         private void SelectSheet()
         {
             boxColumns.DataSource = null;
-            //this.ExcelFileSelected.ActiveSheet(boxSheets.SelectedItem.ToString());
-            //boxColumns.DataSource = this.ExcelFileSelected.ColumnsNames;
+            ExcelSheets ActiveSheet = this.ExcelFileSelected.getSheet(boxSheets.SelectedItem.ToString());
+            boxColumns.DataSource = ActiveSheet.ColumnsList();
         }
 
         private void boxSheets_SelectedIndexChanged(object sender, EventArgs e)
         {
             SelectSheet();
+        }
+
+        private void brAdd_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

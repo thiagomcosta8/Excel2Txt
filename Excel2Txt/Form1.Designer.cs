@@ -127,6 +127,7 @@
             this.brAdd.TabIndex = 8;
             this.brAdd.Text = ">>>";
             this.brAdd.UseVisualStyleBackColor = true;
+            this.brAdd.Click += new System.EventHandler(this.brAdd_Click);
             // 
             // btRemove
             // 
