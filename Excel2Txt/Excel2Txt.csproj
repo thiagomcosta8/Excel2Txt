@@ -64,6 +64,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ColumnNameInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ColumnNameInput.Designer.cs">
+      <DependentUpon>ColumnNameInput.cs</DependentUpon>
+    </Compile>
     <Compile Include="ExcelRead\Excel.cs" />
     <Compile Include="ExcelRead\ExcelColumn.cs" />
     <Compile Include="ExcelRead\ExcelSheets.cs" />
@@ -75,6 +81,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ColumnNameInput.resx">
+      <DependentUpon>ColumnNameInput.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

@@ -62,7 +62,8 @@ namespace Excel2Txt
 
         private void brAdd_Click(object sender, EventArgs e)
         {
-
+            ColumnNameInput defColumn = new ColumnNameInput(ExcelFileSelected.Sheets[0].Columns[1]);
+            defColumn.Show();
         }
     }
 }
