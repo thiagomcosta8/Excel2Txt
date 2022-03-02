@@ -73,6 +73,7 @@
     <Compile Include="ExcelRead\Excel.cs" />
     <Compile Include="ExcelRead\ExcelColumn.cs" />
     <Compile Include="ExcelRead\ExcelSheets.cs" />
+    <Compile Include="ExcelResult\ExcelResultColumns.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
